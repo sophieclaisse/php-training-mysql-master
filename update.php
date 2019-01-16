@@ -52,12 +52,17 @@ function changerData ($id)
     echo $conn->error;*/
 }
 
-if (isset ($_POST['name'])){
+//if (isset ($_POST['name'])){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    changerData($id);
+    if ((isset ($_POST['name']) && (!filter_var($_POST['distance'], FILTER_SANITIZE_NUMBER_INT) === false)) && (!filter_var($_POST['duration'], FILTER_SANITIZE_NUMBER_INT) === false) && (!filter_var($_POST['height_difference'], FILTER_SANITIZE_NUMBER_INT) === false)) {
 
+        changerData($id);
+
+    } else {
+        echo("*******************************formulaire non valide**************************************** <br><br>");
+    }
 }
-
 
 ?>
 
