@@ -1,5 +1,6 @@
 <?php
 include "index.php";
+include "check_login.php";
 
 ?>
 
@@ -13,6 +14,20 @@ include "index.php";
     <link rel="stylesheet" href="css/basics.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
+
+  <?php
+
+  if ()
+  echo "Bienvenue"
+
+   ?>
+
+
+  <a href="login.php">LOGIN UTILISATEUR</a>
+
+
+  <a href="logout.php">LOG OUT</a>
+
     <h1>Liste des randonnées</h1>
     <table>
 
@@ -24,6 +39,7 @@ include "index.php";
 
 
      while($row = $sel->fetch_assoc()) {
+
 
          ?> <a href="<?php echo 'delete.php?id='.$row['id'] ?>" >Supprimer</a>
 
@@ -38,6 +54,8 @@ include "index.php";
      print_r($Tab);
      echo"</pre>";*/
 
+     if (isset($_SESSION['userId'])) {
+        include "create.php";}
      ?>
 
   </body>
